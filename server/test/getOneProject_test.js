@@ -7,7 +7,7 @@ const filePath = [
     `${__dirname}/files/logo_animation.mp4`
 ];
 
-let id = null;
+let id = '';
 let token = null;
 
 describe('Get /:id endpoint', () => {
@@ -18,7 +18,7 @@ describe('Get /:id endpoint', () => {
             .send({ email: process.env.LOGIN_EMAIL, password: process.env.LOGIN_PWD });
         token = authRes.body.token;
 
-
+        console.log(token);
         const randomNum = Math.floor(Math.random() * Math.floor(3));
 
         for(let i = 0; i < randomNum; i++) {
