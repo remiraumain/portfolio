@@ -1,22 +1,54 @@
-.App {
-  text-align: center;
+/* define all colors as variables */
+:root {
+  --border: rgba(0,0,0,.2);
+  --shadow: #000;
+  --heading: #000;
+  --main: black;
+  --text: #000;
+  --textAlt: #fff;
+  --inactive: rgba(0,0,0,.3);
+  --background: #fff;
+  --scroll: #c1c1c1;
+  --scrollActive: #818181;
 }
 
-.App-logo {
-  height: 40vmin;
+body {
+  font-family: itc-avant-garde-gothic-pro, sans-serif;
+  font-style: normal;
+  font-weight: 300;
+  background: var(--background);
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+/* Transitons for smooth theme change */
+*:not(body) {
+  transition: background .2s ease, color .2s ease;
 }
 
-.App-link {
-  color: #09d3ac;
+
+/* scrollbar */
+
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--background);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--scroll);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--scrollActive);
+}
+
+/* elements that change color */
+h1,
+p {
+  color: var(--text);
+}
+
+h2 {
+  color: var(--heading);
 }

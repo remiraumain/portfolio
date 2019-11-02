@@ -46,7 +46,7 @@ exports.getOneProject = (req, res, next) => {
         }
     ).catch(
         (error) => {
-            res.status(404).json({ error: error});
+            res.status(404).json({ error: error });
         }
     );
 };

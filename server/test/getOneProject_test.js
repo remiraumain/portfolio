@@ -18,7 +18,6 @@ describe('Get /:id endpoint', () => {
             .send({ email: process.env.LOGIN_EMAIL, password: process.env.LOGIN_PWD });
         token = authRes.body.token;
 
-        console.log(token);
         const randomNum = Math.floor(Math.random() * Math.floor(3));
 
         for(let i = 0; i < randomNum; i++) {
