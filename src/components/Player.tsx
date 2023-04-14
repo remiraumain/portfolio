@@ -1,7 +1,12 @@
-import { useKeyboardControls } from "@react-three/drei";
+import {
+  MeshDistortMaterial,
+  Sphere,
+  Trail,
+  useKeyboardControls,
+} from "@react-three/drei";
 import { useFrame } from "@react-three/fiber";
 import { RapierRigidBody, RigidBody, useRapier } from "@react-three/rapier";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 
 const Player = () => {
   const body = useRef<RapierRigidBody>(null);
@@ -76,10 +81,18 @@ const Player = () => {
       angularDamping={0.5}
       position={[0, 1, 0]}
     >
-      <mesh castShadow>
-        <icosahedronGeometry args={[0.3, 1]} />
-        <meshStandardMaterial flatShading color={"mediumpurple"} />
-      </mesh>
+      <Trail
+        width={1}
+        color={"lightgray"}
+        length={5}
+        decay={5}
+        interval={3}
+        attenuation={(width) => width}
+      >
+        <Sphere castShadow args={[0.3, 32, 16]}>
+          <meshStandardMaterial color={"white"} />
+        </Sphere>
+      </Trail>
     </RigidBody>
   );
 };
