@@ -3,6 +3,7 @@ import { Physics, Debug } from "@react-three/rapier";
 import { Suspense } from "react";
 import Hub from "./Hub";
 import Player from "./Player";
+import Lights from "./Lights";
 
 const Experience = () => {
   return (
@@ -10,7 +11,8 @@ const Experience = () => {
       <OrbitControls makeDefault />
       <Suspense>
         <Physics>
-          <Debug />
+          {/* <Debug /> */}
+          <Lights />
           <Player />
           <Hub />
         </Physics>
