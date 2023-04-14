@@ -1,3 +1,4 @@
+import { KeyboardControls } from "@react-three/drei";
 import { Canvas } from "@react-three/fiber";
 import { type NextPage } from "next";
 import Head from "next/head";
@@ -18,18 +19,28 @@ const Home: NextPage = () => {
       </Head> */}
       <main>
         <div className={"fixed left-0 top-0 h-screen w-screen bg-slate-200"}>
-          <Canvas
-            shadows
-            camera={{
-              fov: 45,
-              near: 0.1,
-              far: 200,
-              position: [2.5, 4, 6],
-            }}
+          <KeyboardControls
+            map={[
+              { name: "forward", keys: ["ArrowUp", "KeyW"] },
+              { name: "backward", keys: ["ArrowDown", "KeyS"] },
+              { name: "leftward", keys: ["ArrowLeft", "KeyA"] },
+              { name: "rightward", keys: ["ArrowRight", "KeyD"] },
+              { name: "jump", keys: ["Space"] },
+            ]}
           >
-            <ambientLight intensity={0.3} />
-            <Experience />
-          </Canvas>
+            <Canvas
+              shadows
+              camera={{
+                fov: 45,
+                near: 0.1,
+                far: 200,
+                position: [2.5, 4, 6],
+              }}
+            >
+              <ambientLight intensity={0.3} />
+              <Experience />
+            </Canvas>
+          </KeyboardControls>
         </div>
       </main>
     </>
