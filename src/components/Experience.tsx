@@ -8,10 +8,11 @@ import Lights from "./Lights";
 const Experience = () => {
   return (
     <>
-      <OrbitControls makeDefault />
+      {/* For debug camera */}
+      {/* <OrbitControls makeDefault /> */}
       <Suspense>
         <Physics>
-          {/* <Debug /> */}
+          <Debug />
           <Lights />
           <Player />
           <Hub />
