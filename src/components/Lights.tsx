@@ -1,4 +1,21 @@
+import { useFrame } from "@react-three/fiber";
+import { useRef } from "react";
+
 const Lights = () => {
+  const light = useRef<THREE.DirectionalLight>(null!);
+  useFrame((state) => {
+    light.current?.position.set(
+      state.camera.position.x,
+      state.camera.position.y,
+      state.camera.position.z
+    );
+    light.current?.target?.position.set(
+      state.camera.position.x + state.camera.rotation.x,
+      state.camera.position.y + state.camera.rotation.y,
+      state.camera.position.z + state.camera.rotation.z
+    );
+  });
+
   return (
     <>
       <directionalLight
