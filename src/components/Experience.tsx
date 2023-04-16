@@ -9,10 +9,10 @@ const Experience = () => {
   return (
     <>
       {/* For debug camera */}
-      {/* <OrbitControls makeDefault /> */}
+      <OrbitControls makeDefault />
       <Suspense>
         <Physics>
-          <Debug />
+          {/* <Debug /> */}
           <Lights />
           <Player />
           <Hub />
